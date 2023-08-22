@@ -53,4 +53,3 @@
 </nav>
 <!-- Navbar -->
 <!--  -->
-<?php echo "<h3>Vous etes :".''.$_SESSION['role'].'</h3>'?>
