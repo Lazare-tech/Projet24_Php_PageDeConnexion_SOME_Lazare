@@ -67,6 +67,7 @@
     </div>
   </div>
 </section>
+<?php include("footer.php")?>
 <!-- Section: Design Block -->
 </body>
 </html>

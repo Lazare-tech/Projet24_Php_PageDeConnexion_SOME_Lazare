@@ -28,13 +28,17 @@ catch(Exception $e){
     <title>Editer</title>
 </head>
 <?php include("admin_menu.php");
-    $id_champ=$_SESSION['id_champ'];
-    echo $_SESSION['id_champ'];
-    $edit= $bdd->prepare("SELECT firstname,lastname,email,role_name FROM Register WHERE id= :id");
+    // $id_champ=$_SESSION['id'];
+    if(isset($_GET['id'])){
+        $id_champ= $_GET['id'];
+    
+    echo $id_champ;
+    $edit= $bdd->prepare("SELECT firstname,lastname,username,email,role_name FROM Register WHERE id= :id");
     $edit->execute([
         'id' => $id_champ
     ]);
     $resultat= $edit->fetch();
+}
 ?>
 <section class="background-radial-gradient overflow-hidden container">
 
@@ -75,17 +79,19 @@ catch(Exception $e){
                                 <input type="email" id="form3Example3" class="form-control" name="email" value=" <?php echo $resultat['email']?>"/>
                                 <label class="form-label" for="form3Example3">Email address</label>
                             </div>
+                            <div class="form-outline mb-4">
+                                <input type="text" id="form3Example3" class="form-control" name="email" value=" <?php echo $resultat['role_name']?>"/>
+                                <label class="form-label" for="form3Example3">Email address</label>
+                            </div>
 
                             <!-- Password input -->
                            
 
                             <!-- Checkbox -->
 
-
-                            <!-- Submit button -->
-                            <button type="submit" class="btn btn-primary btn-block mb-4">
-                                Enregistrer
-                            </button>
+         <a href="admin.php"><button  class="btn btn-primary btn-block mb-4">
+                            Update
+                            </button></a>
 
 
                             
@@ -96,7 +102,21 @@ catch(Exception $e){
         </div>
     </div>
 </section>
+<?php
 
+$edit_update= $bdd->prepare("UPDATE Register SET firstname= :firstname ,lastname= :lastname ,username= :username ,email= :email ,role_name= :role_name FROM Register WHERE id= :id");
+$edit_update->execute([
+    'firstname' => $resultat['firstname'],
+    'lastname' => $resultat['lastname'],
+    'username' => $resultat['username'],
+    'email' =>  $resultat['email'],
+    'motDePasse' => $resultat['passe'],
+    'role_name' => $resultat['role_name'],
+    'id' => $id_champ,
+]);
+?>
+                            
+<?php include ("footer.php")?>
 <body>
 
 </html>

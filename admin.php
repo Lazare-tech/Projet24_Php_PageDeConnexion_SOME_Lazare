@@ -46,8 +46,8 @@ catch(Exception $e){
                 </tr>
             </thead>
             <tbody>
-            <?php while($donnees= $utilisateur->fetch()){?>
-
+            <?php while($donnees= $utilisateur->fetch()){
+                ?>
                 <tr>
                     <td>
                         <div class="d-flex align-items-center">
@@ -66,10 +66,11 @@ catch(Exception $e){
                     <td>
                         <p class="text-muted mb-0"><?php echo $donnees['role_name'];?></p>
                     </td>
-
                     <td>
-                        <a href="editer.php"><button type="button" class="">
-                        <?php $_SESSION['id_champ'] = $donnees['id']?>
+                        
+                    </td>
+                    <td>
+                        <a href="editer.php?id= <?php echo $donnees['id'];?>"><button type="button" class="">
                             Edit
                         </button>
                         </a>
@@ -81,6 +82,7 @@ catch(Exception $e){
             </tbody>
         </table>
     </section>
+    <?php include("footer.php")?>
 </body>
 
 </html>
