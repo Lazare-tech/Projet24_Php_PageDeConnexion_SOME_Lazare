@@ -17,8 +17,8 @@
 </head>
 <body>
 <!-- Navbar -->
-<?php include('menu.php') ?>
+<?php include("menu.php")?>
+  <h1>HomePage</h1>
 
-<h1>HomePage</h1>
 </body>
 </html>

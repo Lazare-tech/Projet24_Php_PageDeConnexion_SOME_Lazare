@@ -14,8 +14,8 @@ $email = $_POST['email'];
 $motDePasse = $_POST['motDePasse'];
 $passe=password_hash($motDePasse,PASSWORD_DEFAULT);
 //afichage des donnees de user
-echo "Firstname : $firstname<br> Lastname: $lastname <br> Username $username <br> Email: $email <br> 
-    Password: $motDePasse <br> Password hash $passe <br>";
+// echo "Firstname : $firstname<br> Lastname: $lastname <br> Username $username <br> Email: $email <br> 
+//     Password: $motDePasse <br> Password hash $passe <br>";
 // requete
 $req= $bdd->prepare("INSERT INTO Register (firstname,lastname, username , email,motDePasse )
                          VALUES   (:firstname,  :lastname, :username,  :email, :motDePasse)");

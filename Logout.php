@@ -3,7 +3,8 @@ session_start();
 session_unset();
 
 session_destroy();
-echo "Session detruite";
+// echo "Session detruite";
+header('Location:index.php');
 
 
 ?>
